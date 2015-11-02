@@ -12,7 +12,7 @@ import cpw.mods.fml.common.registry.GameRegistry
 object PatchJobs {
 
   @EventHandler
-  def init(event: FMLPreInitializationEvent): Unit = {
+  def preInit(event: FMLPreInitializationEvent): Unit = {
     registerBlocks()
     registerTileEntities()
     addRecipes()
