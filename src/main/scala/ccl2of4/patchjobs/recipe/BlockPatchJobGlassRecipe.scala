@@ -1,6 +1,6 @@
 package ccl2of4.patchjobs.recipe
 
-import ccl2of4.patchjobs.block.BlockPatchJobGlass
+import ccl2of4.patchjobs.block.{BlockPatchJobGlassPane, BlockPatchJobGlass}
 import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.item.{Item, ItemStack}
 
@@ -11,12 +11,12 @@ object BlockPatchJobGlassRecipe extends Recipe {
   }
 
   override val input: Array[Object] = {
-    val glassPanes = Item getItemById 102
+    val patchJobGlassPane = Item getItemFromBlock BlockPatchJobGlassPane
     Array(
       Array(
         "GG",
         "GG"),
-      Char.box('G'), glassPanes)
+      Char.box('G'), patchJobGlassPane)
   }
   
 }

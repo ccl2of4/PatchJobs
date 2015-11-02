@@ -1,2 +1,4 @@
-tile.patchJobWood.name=Wood Planks Patch Job
+tile.patchJobBirchPlanks.name=Birch Wood Planks Patch Job
 tile.patchJobGlass.name=Glass Patch Job
+tile.patchJobGlassPane.name=Glass Pane Patch Job
+tile.patchJobCobblestone.name=Cobblestone Patch Job
