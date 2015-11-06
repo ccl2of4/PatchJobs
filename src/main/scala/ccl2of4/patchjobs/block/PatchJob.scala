@@ -9,18 +9,18 @@ import net.minecraft.entity.Entity
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.world.World
 
-trait PatchJob extends ITileEntityProvider {
+trait PatchJob extends ITileEntityProvider { self : Block =>
 
   def maxDamage : Int
 
-  def quantityDropped(random : Random) = 0
+  override def quantityDropped(random : Random) = 0
 
-  def onEntityCollidedWithBlock (worldObj : World, x : Int, y : Int, z : Int, entity : Entity): Unit = {
+  override def onEntityCollidedWithBlock (worldObj : World, x : Int, y : Int, z : Int, entity : Entity): Unit = {
     val tileEntity : TileEntityPatchJob = worldObj.getTileEntity(x, y, z).asInstanceOf[TileEntityPatchJob]
     tileEntity.onEntityCollidedWithBlock()
   }
 
-  def onEntityWalking (worldObj : World, x : Int, y : Int, z : Int, entity : Entity): Unit = {
+  override def onEntityWalking (worldObj : World, x : Int, y : Int, z : Int, entity : Entity): Unit = {
     val tileEntity : TileEntityPatchJob = worldObj.getTileEntity(x, y, z).asInstanceOf[TileEntityPatchJob]
     tileEntity.onEntityWalking()
   }
@@ -30,5 +30,4 @@ trait PatchJob extends ITileEntityProvider {
     tileEntity.maxDamage = maxDamage
     tileEntity
   }
-
 }
