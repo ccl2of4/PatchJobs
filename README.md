@@ -1,2 +1,2 @@
 # PatchJobs
-Minecraft Forge Mod
+Minecraft Forge mod
