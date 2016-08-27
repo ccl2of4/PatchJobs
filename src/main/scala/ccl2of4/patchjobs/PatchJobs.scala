@@ -1,7 +1,7 @@
 package ccl2of4.patchjobs
 
-import ccl2of4.patchjobs.block.{BlockPatchJobBirchPlanks, BlockPatchJobCobblestone, BlockPatchJobGlass, BlockPatchJobGlassPane}
-import ccl2of4.patchjobs.recipe.{BlockPatchJobCobblestoneRecipe, BlockPatchJobGlassPaneRecipe, BlockPatchJobGlassRecipe, BlockPatchJobWoodRecipe}
+import ccl2of4.patchjobs.block._
+import ccl2of4.patchjobs.recipe._
 import ccl2of4.patchjobs.tileentity.TileEntityPatchJob
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
@@ -20,10 +20,11 @@ object PatchJobs {
 
   def registerBlocks(): Unit = {
     Array(
-      BlockPatchJobGlass,
       BlockPatchJobBirchPlanks,
-      BlockPatchJobGlassPane,
-      BlockPatchJobCobblestone
+      BlockPatchJobBirchSlab,
+      BlockPatchJobCobblestone,
+      BlockPatchJobGlass,
+      BlockPatchJobGlassPane
     ).foreach { block =>
       GameRegistry.registerBlock(block, block.getUnlocalizedName)
     }
@@ -35,10 +36,11 @@ object PatchJobs {
 
   def addRecipes(): Unit = {
     Array(
-      BlockPatchJobWoodRecipe,
+      BlockPatchJobBirchPlanksRecipe,
+      BlockPatchJobBirchSlabRecipe,
+      BlockPatchJobCobblestoneRecipe,
       BlockPatchJobGlassRecipe,
-      BlockPatchJobGlassPaneRecipe,
-      BlockPatchJobCobblestoneRecipe
+      BlockPatchJobGlassPaneRecipe
     ).foreach { recipe =>
       GameRegistry.addShapedRecipe(recipe.output, recipe.input : _* )
     }

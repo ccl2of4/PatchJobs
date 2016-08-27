@@ -1,17 +1,29 @@
 package ccl2of4.patchjobs
 
-import ccl2of4.patchjobs.block.{BlockPatchJobBirchPlanks, BlockPatchJobGlass, BlockPatchJobGlassPane, BlockPatchJobCobblestone}
+import ccl2of4.patchjobs.block._
 import net.minecraft.item.{Item, ItemStack}
 
 package object recipe {
 
-  object BlockPatchJobWoodRecipe extends Recipe {
+  object BlockPatchJobBirchPlanksRecipe extends Recipe {
     override val output: ItemStack = new ItemStack(BlockPatchJobBirchPlanks, 1)
     override val input: Array[Object] = {
       val stick = Item getItemById 280
       Array(
         Array(
           "SS",
+          "SS"
+        ),
+        Char.box('S'), stick)
+    }
+  }
+
+  object BlockPatchJobBirchSlabRecipe extends Recipe {
+    override val output: ItemStack = new ItemStack(BlockPatchJobBirchSlab, 1)
+    override val input: Array[Object] = {
+      val stick = Item getItemById 280
+      Array(
+        Array(
           "SS"
         ),
         Char.box('S'), stick)
