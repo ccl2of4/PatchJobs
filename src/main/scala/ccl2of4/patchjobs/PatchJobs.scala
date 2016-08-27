@@ -8,7 +8,7 @@ import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import cpw.mods.fml.common.registry.GameRegistry
 
-@Mod(modid = "PatchJobs", name = "PatchJobs", version = "1.0.0", modLanguage = "scala")
+@Mod(modid = "PatchJobs", name = "PatchJobs", version = "1.1.0", modLanguage = "scala")
 object PatchJobs {
 
   @EventHandler
