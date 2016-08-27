@@ -14,7 +14,7 @@ package object block {
     setStepSound(soundTypeWood)
     setBlockName("patchJobBirchPlanks")
     setBlockTextureName("planks_birch")
-    override val maxDamage = 10
+    override val maxDamage = 15
   }
 
   object BlockPatchJobBirchSlab extends BlockSlab(false, Material.wood) with PatchJob {
@@ -24,7 +24,7 @@ package object block {
     setStepSound(soundTypeWood)
     setBlockName("patchJobBirchSlab")
     setBlockTextureName("planks_birch")
-    override val maxDamage = 10
+    override val maxDamage = 15
     override def func_150002_b(p_150002_1_ : Int): String = "wooden_slab.birch"
   }
 
@@ -35,7 +35,7 @@ package object block {
     setStepSound(soundTypePiston)
     setBlockName("patchJobCobblestone")
     setBlockTextureName("cobblestone")
-    override val maxDamage = 10
+    override val maxDamage = 15
   }
 
   object BlockPatchJobGlass extends BlockGlass(Material.glass, false) with PatchJob  {
@@ -44,7 +44,7 @@ package object block {
     setStepSound(soundTypeGlass)
     setBlockName("patchJobGlass")
     setBlockTextureName("glass")
-    override val maxDamage = 5
+    override val maxDamage = 8
   }
 
   object BlockPatchJobGlassPane extends BlockPane("glass", "glass_pane_top", Material.glass, false) with PatchJob  {
@@ -52,7 +52,7 @@ package object block {
     setHardness(0.3F)
     setStepSound(soundTypeGlass)
     setBlockName("patchJobGlassPane")
-    override val maxDamage = 2
+    override val maxDamage = 5
   }
 
 }

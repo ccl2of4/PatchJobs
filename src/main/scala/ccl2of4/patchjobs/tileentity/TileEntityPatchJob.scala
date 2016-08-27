@@ -1,5 +1,6 @@
 package ccl2of4.patchjobs.tileentity
 
+import net.minecraft.entity.{Entity, IProjectile}
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 
@@ -8,8 +9,16 @@ class TileEntityPatchJob extends TileEntity {
   def maxDamage_=(maxDamage : Int) = _maxDamage = maxDamage
   def maxDamage = _maxDamage
 
-  def onEntityCollidedWithBlock(): Unit = incAndCheckDamage()
-  def onEntityWalking(): Unit = incAndCheckDamage()
+  def onEntityCollidedWithBlock(entity: Entity): Unit = {
+    if (!entity.isInstanceOf[IProjectile]) {
+      return
+    }
+    incAndCheckDamage(5)
+  }
+
+  def onEntityWalking(): Unit = {
+    incAndCheckDamage(1)
+  }
 
   override def writeToNBT(nbt : NBTTagCompound): Unit = {
     super.writeToNBT(nbt)
@@ -25,12 +34,12 @@ class TileEntityPatchJob extends TileEntity {
 
   override def canUpdate = false
 
-  private def incAndCheckDamage(): Unit = {
+  private def incAndCheckDamage(amount: Int): Unit = {
     if (worldObj.isRemote) {
       return
     }
 
-    damage += 1
+    damage += amount
     if (damage > maxDamage) {
       breakBlock()
     }

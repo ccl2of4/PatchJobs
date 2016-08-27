@@ -3,7 +3,6 @@ package ccl2of4.patchjobs.block
 import java.util.Random
 
 import ccl2of4.patchjobs.tileentity.TileEntityPatchJob
-import net.minecraft.block.material.Material
 import net.minecraft.block.{Block, ITileEntityProvider}
 import net.minecraft.entity.Entity
 import net.minecraft.tileentity.TileEntity
@@ -17,7 +16,7 @@ trait PatchJob extends ITileEntityProvider { self : Block =>
 
   override def onEntityCollidedWithBlock (worldObj : World, x : Int, y : Int, z : Int, entity : Entity): Unit = {
     val tileEntity : TileEntityPatchJob = worldObj.getTileEntity(x, y, z).asInstanceOf[TileEntityPatchJob]
-    tileEntity.onEntityCollidedWithBlock()
+    tileEntity.onEntityCollidedWithBlock(entity)
   }
 
   override def onEntityWalking (worldObj : World, x : Int, y : Int, z : Int, entity : Entity): Unit = {
